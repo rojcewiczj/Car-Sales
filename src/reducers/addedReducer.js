@@ -17,27 +17,20 @@ const initialState = {
     ]
   };
 
-  export const additionalReducer = (state = initialState, action) => {
+  export const addedReducer = (state = initialState, action) => {
     console.log(action);
     switch(action.type) {
-      case ADDITIONAL_FEATURE:
-        return {
-          ...state,
-          features: state.features.map((feature, id) => {
-            if (id === action.payload) {
-              return {
-                ...feature,
-                name: feature.name
-              };
-            } else {
-              return feature
+      case ADDED_FEATURE:
+          return [...state.features,
+            {
+                id: action.payload.id,
+               name: action.payload.name,
+               price: action.payload.price
             }
-          })
-         };
-         default:
-      return state;
-    }
-    
-  }
 
+          ];
+          
+  }
+    return state;
+  }
   

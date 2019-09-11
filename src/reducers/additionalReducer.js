@@ -1,4 +1,5 @@
 import { ADDITIONAL_FEATURE } from '../actions';
+import { formatResultsErrors } from 'jest-message-util';
 
 const initialState = {
     additionalPrice: 0,
@@ -10,34 +11,29 @@ const initialState = {
       features: []
     },
     store: [
-      { id: 1, name: 'V-6 engine', price: 1500 },
-      { id: 2, name: 'Racing detail package', price: 1500 },
-      { id: 3, name: 'Premium sound system', price: 500 },
-      { id: 4, name: 'Rear spoiler', price: 250 }
+      { id: 1, name: 'V-6 engine', price: 1500, selected: false },
+      { id: 2, name: 'Racing detail package', price: 1500, selected: false },
+      { id: 3, name: 'Premium sound system', price: 500, selected: false },
+      { id: 4, name: 'Rear spoiler', price: 250, selected: false }
     ]
   };
 
-  export const additionalReducer = (state = initialState, action) => {
+  export const addedReducer = (state = initialState, action) => {
     console.log(action);
     switch(action.type) {
-      case ADDITIONAL_FEATURE:
-        return {
-          ...state,
-          features: state.features.map((feature, id) => {
-            if (id === action.payload) {
-              return {
-                ...feature,
-                name: feature.name
-              };
-            } else {
-              return feature
-            }
-          })
-         };
-         default:
-      return state;
+      case ADDED_FEATURE:
+        let RemoveFeature = state.features.filter(feature =>{
+          if (feature.selected === true) {
+            return !features.selected;
+          }
+          else {
+            return feature;
+          }
+        })
+        return RemoveFeature;
+        
     }
-    
+    return state;
   }
 
   
