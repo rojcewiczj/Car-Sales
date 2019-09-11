@@ -4,9 +4,14 @@ import Header from './components/Header';
 import AddedFeatures from './components/AddedFeatures';
 import AdditionalFeatures from './components/AdditionalFeatures';
 import Total from './components/Total';
+import { createStore } from 'redux';
+import { Provider } from 'react-redux';
+import rootReducer from './reducers';
+
+
 
 const App = () => {
- 
+  const store = createStore(rootReducer);
 
   const removeFeature = item => {
     // dispatch an action here to remove an item
@@ -17,6 +22,7 @@ const App = () => {
   };
 
   return (
+    <Provider store={store}>
     <div className="boxes">
       <div className="box">
         <Header car={state.car} />
@@ -27,6 +33,7 @@ const App = () => {
         <Total car={state.car} additionalPrice={state.additionalPrice} />
       </div>
     </div>
+    </Provider>
   );
 };
 
