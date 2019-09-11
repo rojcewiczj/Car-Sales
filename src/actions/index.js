@@ -9,6 +9,9 @@ export const addedFeatureAC = feature => {
 };
 
 export const ADDITIONAL_FEATURE = "ADDITIONAL_FEATURE";
+
 export const additonalFeatureAC = feature => {
+    console.log(feature)
     return {type: ADDITIONAL_FEATURE, payload: feature }
+    console.log(feature)
 };

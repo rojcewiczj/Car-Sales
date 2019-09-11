@@ -18,13 +18,14 @@ export const initialState = {
   };
 
   export const featureReducer = (state = initialState, action) => {
-    console.log(state.features);
+    console.log("action", action);
     switch(action.type) {
-    case ADDITIONAL_FEATURE:
+    case  ADDITIONAL_FEATURE:
+        console.log(action.payload)
        return {
-           ...state,
-           feauters:  action.payload 
-
+           ...state, 
+           features: action.payload 
+        
        }
     case ADDED_FEATURE:
         return {

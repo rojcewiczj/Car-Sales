@@ -14,15 +14,15 @@ const App = ({car, store, additionalPrice, additonalFeatureAC }) => {
   }
   const addFeature = item => {
     additonalFeatureAC(item);
-
+  console.log(item)
   }
  
   return (
     
     <div className="boxes">
       <div className="box">
-        <Header car={car} />
-        <AddedFeatures car={car} />
+        <Header car={car}/>
+        <AddedFeatures car={car}/>
       </div>
       <div className="box">
           <AdditionalFeatures store={store} addFeature ={addFeature}/>
@@ -36,8 +36,9 @@ const mapStateToProps = state => {
   return {
     car: state.car,
     store: state.store,
-    additionalPrice: state.additionalPrice
+    additionalPrice: state.additionalPrice,
+    additonalFeatureAC: additonalFeatureAC
   }
 }
 
-export default connect(mapStateToProps, {})(App);
+export default connect(mapStateToProps, { additonalFeatureAC})(App);
