@@ -7,7 +7,7 @@ export const initialState = {
       name: '2019 Ford Mustang',
       image:
         'https://cdn.motor1.com/images/mgl/0AN2V/s1/2019-ford-mustang-bullitt.jpg',
-      features: []
+      features: [ { id: 1, name: 'V-6 engine', price: 1500, selected: false },]
     },
     store: [
       { id: 1, name: 'V-6 engine', price: 1500, selected: false },
@@ -18,31 +18,14 @@ export const initialState = {
   };
 
   export const featureReducer = (state = initialState, action) => {
-    console.log(action);
+    console.log(state.features);
     switch(action.type) {
-      case ADDITIONAL_FEATURE:
-          return [...state.features,
-            {
-                id: action.payload.id,
-               name: action.payload.name,
-               price: action.payload.price,
-               selected: false
-            }
+    
+            default:
+                    return state;
 
-          ];
-          case ADDED_FEATURE:
-                let RemoveFeature = state.features.filter(feature =>{
-                  if (feature.selected === true) {
-                    return !feature.selected;
-                  }
-                  else {
-                    return feature;
-                  }
-                })
-                return RemoveFeature;
-                
-          
+
+
+
   }
-    return state;
-  }
-  
+};
