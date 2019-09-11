@@ -20,10 +20,23 @@ export const initialState = {
   export const featureReducer = (state = initialState, action) => {
     console.log(state.features);
     switch(action.type) {
-    
-            default:
-                    return state;
+    case ADDITIONAL_FEATURE:
+       return {
+           ...state,
+           feauters:  action.payload 
 
+       }
+    case ADDED_FEATURE:
+        return {
+            ...state,
+
+
+        }
+
+
+
+      default:
+         return state;
 
 
 

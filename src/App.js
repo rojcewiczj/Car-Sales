@@ -4,12 +4,18 @@ import AddedFeatures from './components/AddedFeatures';
 import AdditionalFeatures from './components/AdditionalFeatures';
 import Total from './components/Total';
 import {connect} from 'react-redux';
+import {additonalFeatureAC} from './actions'
 
 
 
+const App = ({car, store, additionalPrice, additonalFeatureAC }) => {
+  const removeFeature = item => {
 
-const App = ({car, store, additionalPrice}) => {
-  
+  }
+  const addFeature = item => {
+    additonalFeatureAC(item);
+
+  }
  
   return (
     
@@ -19,7 +25,7 @@ const App = ({car, store, additionalPrice}) => {
         <AddedFeatures car={car} />
       </div>
       <div className="box">
-        <AdditionalFeatures store={store}/>
+          <AdditionalFeatures store={store} addFeature ={addFeature}/>
         <Total car={car} additionalPrice={additionalPrice}  />
       </div>
     </div>
