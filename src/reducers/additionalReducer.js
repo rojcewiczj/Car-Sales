@@ -1,4 +1,4 @@
-
+import { ADDITIONAL_FEATURE } from '../actions';
 
 const initialState = {
     additionalPrice: 0,
@@ -20,14 +20,24 @@ const initialState = {
   export const additionalReducer = (state = initialState, action) => {
     console.log(action);
     switch(action.type) {
-      case ADDITIONAL_MEMBER:
+      case ADDITIONAL_FEATURE:
         return {
           ...state,
-          
-
-        }
+          features: state.features.map((feature, id) => {
+            if (id === action.payload) {
+              return {
+                ...feature,
+                name: feature.name
+              };
+            } else {
+              return feature
+            }
+          })
+         };
+         default:
+      return state;
     }
-
+    
   }
 
   
