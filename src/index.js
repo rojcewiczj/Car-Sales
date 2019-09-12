@@ -5,7 +5,7 @@ import 'bulma/css/bulma.css';
 import './styles.scss';
 import { createStore } from 'redux';
 import { Provider } from 'react-redux';
-import { initialState, featureReducer} from './reducers/featureReducer';
+import { featureReducer} from './reducers/featureReducer';
 const store = createStore(featureReducer);
 
 const rootElement = document.getElementById('root');
