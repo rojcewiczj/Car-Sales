@@ -3,7 +3,7 @@ import {addedFeatureAC} from '../actions';
 import {connect} from 'react-redux';
 const AddedFeature = props => {
   const removeFeature = item => {
-    addedFeatureAC(item);
+    props.addedFeatureAC(item);
     console.log(item)
   }
   return (
