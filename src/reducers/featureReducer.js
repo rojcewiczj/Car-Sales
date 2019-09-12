@@ -27,8 +27,8 @@ export const initialState = {
                additionalPrice:state.additionalPrice + action.payload.price,
                car: { ...state.car,
                    features: state.car.features.concat(action.payload),
-               }
-             
+               },
+             store:[...state.store.splice(action.payload.index)]
            }
            case ADDED_FEATURE:
                 console.log("added-feature:", action);
@@ -44,8 +44,8 @@ export const initialState = {
                         return !item;
                     }
                   }
-               )},
-               store:[...state.store, action.payload]
+               )}
+               
                
                }
    
